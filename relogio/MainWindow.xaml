@@ -1,0 +1,30 @@
+﻿<Window x:Class="relogio.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:relogio"
+        mc:Ignorable="d"
+        Title="Relogio2D" Height="450" Width="800">
+    <Canvas>
+        <Ellipse
+            Canvas.Top="-10.0"
+            Canvas.Left="-10.0"
+            Width="20.0"
+            Height="20.0"
+            Fill="Red">
+        </Ellipse>
+        <Canvas.RenderTransform>
+            <TransformGroup>
+                <ScaleTransform
+                    ScaleX="4.8"
+                    ScaleY="4.8">
+                </ScaleTransform>
+                <TranslateTransform
+                    X="48"
+                    Y="48">
+                </TranslateTransform>
+            </TransformGroup>
+        </Canvas.RenderTransform>
+    </Canvas>
+</Window>

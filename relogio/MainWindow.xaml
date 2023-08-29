@@ -7,6 +7,14 @@
         mc:Ignorable="d"
         Title="Relogio2D" Height="450" Width="800">
     <Canvas>
+        <Canvas.Resources>
+            <ControlTemplate x:Key="ponteiro">
+                <Polygon
+                    Points="0.3,-1 0.2,8 0,9 -0.2,8 -0.3,-1"
+                    Fill="Black">
+                </Polygon>
+            </ControlTemplate>
+        </Canvas.Resources>
         <Ellipse
             Canvas.Top="-10.0"
             Canvas.Left="-10.0"
@@ -14,15 +22,38 @@
             Height="20.0"
             Fill="Red">
         </Ellipse>
+        <Control 
+            Template="{StaticResource ResourceKey=ponteiro}"
+            Name="ponteiroMinutos">
+        </Control>
+        <Control 
+            Template="{StaticResource ResourceKey=ponteiro}"
+            Name="ponteiroHoras">
+            <Control.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform
+                        ScaleX="1.6"
+                        ScaleY="0.7">
+                    </ScaleTransform>
+                    <RotateTransform
+                        Angle="-120">
+                    </RotateTransform>
+                </TransformGroup>
+            </Control.RenderTransform>
+        </Control>
+        <!--<Polygon
+            Points="0.3,-1 0.2,8 0,9 -0.2,8 -0.3,-1"
+            Fill="Black">
+        </Polygon>-->
         <Canvas.RenderTransform>
             <TransformGroup>
                 <ScaleTransform
-                    ScaleX="4.8"
-                    ScaleY="4.8">
+                    ScaleX="19.2"
+                    ScaleY="19.2">
                 </ScaleTransform>
                 <TranslateTransform
-                    X="48"
-                    Y="48">
+                    X="192"
+                    Y="192">
                 </TranslateTransform>
             </TransformGroup>
         </Canvas.RenderTransform>

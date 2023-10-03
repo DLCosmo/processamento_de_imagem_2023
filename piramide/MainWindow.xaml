@@ -8,10 +8,57 @@
         Title="MainWindow" Height="450" Width="800">
     <Viewport3D>
         <Viewport3D.Camera>
+            <PerspectiveCamera
+                Position="0, 250, -250"
+                LookDirection="0, -1, 1"
+                UpDirection="0, 1, 0"
+                NearPlaneDistance="0.02"
+                FarPlaneDistance="1000"
+                FieldOfView="45">
+            </PerspectiveCamera>
         </Viewport3D.Camera>
         <ModelVisual3D>
             <ModelVisual3D.Content>
                 <Model3DGroup>
+                    <AmbientLight
+                        Color="#505050">
+                    </AmbientLight>
+                    <DirectionalLight
+                        Color="White"
+                        Direction="0,-1,-1">
+                    </DirectionalLight>
+                    <GeometryModel3D>
+                        <GeometryModel3D.Geometry>
+                            <MeshGeometry3D
+                                Positions="0,75,0 
+                                           -50,0,50 
+                                           50,0,50
+                                           0,75,0 
+                                           50,0,50
+                                           50,0,-50
+                                           0,75,0 
+                                           -50,0,-50
+                                           -50,0,50 
+                                           0,75,0
+                                           50,0,-50
+                                           -50,0,-50"
+                                TriangleIndices="0,1,2
+                                                 3,4,5
+                                                 6,7,8
+                                                 9,10,11">
+                            </MeshGeometry3D>
+                        </GeometryModel3D.Geometry>
+                        <GeometryModel3D.Material>
+                            <DiffuseMaterial
+                                Brush="Yellow">
+                            </DiffuseMaterial>
+                        </GeometryModel3D.Material>
+                        <GeometryModel3D.BackMaterial>
+                            <DiffuseMaterial
+                                Brush="Red">
+                            </DiffuseMaterial>
+                        </GeometryModel3D.BackMaterial>
+                    </GeometryModel3D>
                 </Model3DGroup>
             </ModelVisual3D.Content>
         </ModelVisual3D>

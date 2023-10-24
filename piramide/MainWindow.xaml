@@ -15,6 +15,20 @@
                 NearPlaneDistance="0.02"
                 FarPlaneDistance="1000"
                 FieldOfView="45">
+                <PerspectiveCamera.Transform>
+                    <RotateTransform3D
+                                CenterX="0"
+                                CenterY="0"
+                                CenterZ="0">
+                        <RotateTransform3D.Rotation>
+                            <AxisAngleRotation3D
+                                        x:Name="rotacaocamera"
+                                        Axis="0,1,0"
+                                        Angle="0">
+                            </AxisAngleRotation3D>
+                        </RotateTransform3D.Rotation>
+                    </RotateTransform3D>
+                </PerspectiveCamera.Transform>
             </PerspectiveCamera>
         </Viewport3D.Camera>
         <ModelVisual3D>
@@ -57,7 +71,7 @@
                         </GeometryModel3D.Geometry>
                         <GeometryModel3D.Material>
                             <DiffuseMaterial
-                                Brush="Yellow">
+                                Brush="DeepPink">
                             </DiffuseMaterial>
                         </GeometryModel3D.Material>
                         <GeometryModel3D.BackMaterial>
@@ -65,6 +79,26 @@
                                 Brush="Red">
                             </DiffuseMaterial>
                         </GeometryModel3D.BackMaterial>
+                        <GeometryModel3D.Transform>
+                            <Transform3DGroup>
+                                <RotateTransform3D
+                                CenterX="0"
+                                CenterY="37.5"
+                                CenterZ="0">
+                                    <RotateTransform3D.Rotation>
+                                        <AxisAngleRotation3D
+                                        x:Name="rotacaopiramide"
+                                        Axis="0,1,0"
+                                        Angle="0">
+                                        </AxisAngleRotation3D>
+                                    </RotateTransform3D.Rotation>
+                                </RotateTransform3D>
+                                <TranslateTransform3D
+                                    x:Name="transformacaopiramide2"
+                                    OffsetY="0">
+                                </TranslateTransform3D>
+                            </Transform3DGroup>
+                        </GeometryModel3D.Transform>
                     </GeometryModel3D>
                     <GeometryModel3D x:Name="chao">
                         <GeometryModel3D.Geometry>
@@ -94,5 +128,38 @@
                 </Model3DGroup>
             </ModelVisual3D.Content>
         </ModelVisual3D>
+        <Viewport3D.Triggers>
+            <EventTrigger RoutedEvent="FrameworkElement.Loaded">
+                <BeginStoryboard>
+                    <Storyboard>
+                        <DoubleAnimation
+                            Storyboard.TargetName="rotacaocamera"
+                            Storyboard.TargetProperty="Angle"
+                            To="0.0"
+                            From="360.0"
+                            Duration="00:00:04.00"
+                            RepeatBehavior="Forever">
+                        </DoubleAnimation>
+                        <DoubleAnimation
+                            Storyboard.TargetName="rotacaopiramide"
+                            Storyboard.TargetProperty="Angle"
+                            To="0.0"
+                            From="-360.0"
+                            Duration="00:00:03.00"
+                            RepeatBehavior="Forever">
+                        </DoubleAnimation>
+                        <DoubleAnimation
+                            Storyboard.TargetName="transformacaopiramide2"
+                            Storyboard.TargetProperty="OffsetY"
+                            To="200.0"
+                            From="0.0"
+                            Duration="00:00:15.00"
+                            RepeatBehavior="Forever"
+                            AutoReverse="True">
+                        </DoubleAnimation>
+                    </Storyboard>
+                </BeginStoryboard>
+            </EventTrigger>
+        </Viewport3D.Triggers>
     </Viewport3D>
 </Window>

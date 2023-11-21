@@ -96,6 +96,19 @@
                                 </TranslateTransform3D>
                             </GeometryModel3D.Transform>
                         </GeometryModel3D>
+                        <Model3DGroup.Transform>
+                            <RotateTransform3D
+                                CenterX="15"
+                                CenterY="80"
+                                CenterZ="15">
+                                <RotateTransform3D.Rotation>
+                                    <AxisAngleRotation3D x:Name="juntajoelho"
+                                        Axis="0,0,1"
+                                        Angle="0">
+                                    </AxisAngleRotation3D>
+                                </RotateTransform3D.Rotation>
+                            </RotateTransform3D>
+                        </Model3DGroup.Transform>
                     </Model3DGroup>
                     <GeometryModel3D x:Name="coxa"
                         Geometry="{StaticResource coxa}"
@@ -108,9 +121,47 @@
                             </TranslateTransform3D>
                         </GeometryModel3D.Transform>
                     </GeometryModel3D>
+                    <Model3DGroup.Transform>
+                        <RotateTransform3D
+                            CenterX="15"
+                            CenterY="130"
+                            CenterZ="15">
+                            <RotateTransform3D.Rotation>
+                                <AxisAngleRotation3D x:Name="juntaquadril"
+                                    Axis="0,0,1"
+                                    Angle="0">
+                                </AxisAngleRotation3D>
+                            </RotateTransform3D.Rotation>
+                        </RotateTransform3D>
+                    </Model3DGroup.Transform>
                 </Model3DGroup>
-                
             </ModelVisual3D.Content>
         </ModelVisual3D>
+        <Viewport3D.Triggers>
+            <EventTrigger RoutedEvent="FrameworkElement.Loaded">
+                <BeginStoryboard>
+                    <Storyboard>
+                        <DoubleAnimation
+                            Storyboard.TargetName="juntajoelho"
+                            Storyboard.TargetProperty="Angle"
+                            From="0.0"
+                            To="45.0"
+                            Duration="00:00:03.00"
+                            RepeatBehavior="Forever"
+                            AutoReverse="True">
+                        </DoubleAnimation>
+                        <DoubleAnimation
+                            Storyboard.TargetName="juntaquadril"
+                            Storyboard.TargetProperty="Angle"
+                            From="0.0"
+                            To="-45.0"
+                            Duration="00:00:03.00"
+                            RepeatBehavior="Forever"
+                            AutoReverse="True">
+                        </DoubleAnimation>
+                    </Storyboard>
+                </BeginStoryboard>
+            </EventTrigger>
+        </Viewport3D.Triggers>
     </Viewport3D>
 </Window>
